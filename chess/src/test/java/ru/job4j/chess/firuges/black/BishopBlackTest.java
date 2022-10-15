@@ -17,9 +17,9 @@ class BishopBlackTest {
 
     @Test
     void whenWayIsDiagonal() {
-        Cell expected[] = {Cell.E7, Cell.D6};
+        Cell[] expected = {Cell.E7, Cell.D6};
         BishopBlack bp = new BishopBlack(Cell.F8);
-        Cell result[] = bp.way(Cell.D6);
+        Cell[] result = bp.way(Cell.D6);
         assertArrayEquals(expected, result);
 
     }
@@ -31,7 +31,7 @@ class BishopBlackTest {
                 () -> {
                     bp.way(Cell.D8);
                 });
-        assertThat(exception.getMessage()).isEqualTo("Could not move by diagonal from %s to %s"
-                , Cell.F8, Cell.D8);
+        assertThat(exception.getMessage()).isEqualTo("Could not move by diagonal from %s to %s",
+                Cell.F8, Cell.D8);
     }
 }
