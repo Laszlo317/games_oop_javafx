@@ -23,9 +23,9 @@ public final class Logic {
     private boolean free(Cell[] steps) throws OccupiedCellException {
         for (Cell c : steps) {
             for (Figure f : figures) {
-                if (c.getY() == f.position().getY()
-                        && c.getX() == f.position().getX()) {
-                    throw new OccupiedCellException();
+                if (c.equals(f.position())) {
+                    throw new OccupiedCellException(String.format(
+                            "The cell %s is already occupied!", c));
                 }
             }
         }

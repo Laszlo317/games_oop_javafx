@@ -10,7 +10,6 @@ import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static ru.job4j.chess.firuges.Cell.F8;
 
-@Disabled("Тесты отключены. Удалить аннотацию после реализации всех методов по заданию.")
 public class LogicTest {
 
     @Test
@@ -32,5 +31,7 @@ public class LogicTest {
         OccupiedCellException exception = assertThrows(OccupiedCellException.class, () -> {
             logic.move(F8, Cell.E7);
         });
+        assertThat(exception.getMessage()).isEqualTo("The cell %s is already occupied!",
+                Cell.E7);
     }
 }
